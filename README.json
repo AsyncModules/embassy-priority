@@ -1,0 +1,11 @@
+{
+    "name": "embassy-priority",
+    "description": "This is a crate for generating efficient program, we develope it based on Embassy(https://github.com/embassy-rs/embassy) and add priority control.",
+    "authors": [{
+      "name": "zflcs",
+      "email": "1491657576@qq.com"
+    }],
+    "keywords": ["async", "embedded", "priority"],
+    "repo": "embassy-priority",
+    "doc_url": "https://github.com/AsyncModules/embassy-priority/blob/main/README.md"
+  }
