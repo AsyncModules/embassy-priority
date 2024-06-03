@@ -128,6 +128,15 @@ impl<'d> Flex<'d> {
         });
     }
 
+    /// Put the pin into analog mode
+    ///
+    /// This mode is used by ADC and COMP but usually there is no need to set this manually
+    /// as the mode change is handled by the driver.
+    #[inline]
+    pub fn set_as_analog(&mut self) {
+        self.pin.set_as_analog();
+    }
+
     /// Put the pin into AF mode, unchecked.
     ///
     /// This puts the pin into the AF mode, with the requested number, pull and speed. This is
@@ -813,7 +822,7 @@ foreach_pin!(
 
 pub(crate) unsafe fn init(_cs: CriticalSection) {
     #[cfg(afio)]
-    <crate::peripherals::AFIO as crate::rcc::SealedRccPeripheral>::enable_and_reset_with_cs(_cs);
+    crate::rcc::enable_and_reset_with_cs::<crate::peripherals::AFIO>(_cs);
 
     crate::_generated::init_gpio();
 }
